@@ -22,6 +22,11 @@ namespace AccessibleProject
         IntPtr _hwnd = IntPtr.Zero;
         int _id = 0;
 
+        private AccessibleHelper()
+        {
+
+        }
+
         public static AccessibleHelper CreateByHwnd(IntPtr hwnd)
         {
             Guid guid = NativeMethods.IAccessibleGuid;
