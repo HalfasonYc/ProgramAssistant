@@ -48,7 +48,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Accessibility" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -63,17 +62,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccessibleHelper.cs" />
-    <Compile Include="AccessibleInformation.cs" />
-    <Compile Include="AccLooker.cs">
+    <Compile Include="Accessible\AccLooker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AccLooker.Designer.cs">
+    <Compile Include="Accessible\AccLooker.Designer.cs">
       <DependentUpon>AccLooker.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AccLooker.resx">
+    <EmbeddedResource Include="Accessible\AccLooker.resx">
       <DependentUpon>AccLooker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -109,6 +106,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProgramAssitant.Core\ProgramAssitant.Core.csproj">
+      <Project>{615ae5fb-295c-49d9-bf0c-3940bb75b289}</Project>
+      <Name>ProgramAssitant.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
