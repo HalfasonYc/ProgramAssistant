@@ -27,7 +27,12 @@ namespace AccessibleProject
 
         }
 
-        public static AccessibleHelper CreateByHwnd(IntPtr hwnd)
+        /// <summary>
+        /// 失败返回null
+        /// </summary>
+        /// <param name="hwnd"></param>
+        /// <returns></returns>
+        public static AccessibleHelper FromHwnd(IntPtr hwnd)
         {
             Guid guid = NativeMethods.IAccessibleGuid;
             IAccessible accessible = null;
@@ -41,18 +46,23 @@ namespace AccessibleProject
             return null;
         }
 
-        public static AccessibleHelper CreateByPoint(Point point)
+        /// <summary>
+        /// 失败返回null
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        public static AccessibleHelper FromPoint(Point point)
         {
             if (NativeMethods.AccessibleObjectFromPoint(point, out IAccessible accessible, out object childId) == IntPtr.Zero)
             {
-                AccessibleHelper accessibleHelper = CreateByObject(accessible);
+                AccessibleHelper accessibleHelper = FromObject(accessible);
                 accessibleHelper._id = Convert.ToInt32(childId);
                 return accessibleHelper;
             }
             return null;
         }
 
-        public static AccessibleHelper CreateByObject(IAccessible accessible)
+        public static AccessibleHelper FromObject(IAccessible accessible)
         {
             AccessibleHelper accessibleHelper = new AccessibleHelper();
             accessibleHelper._self = accessible;

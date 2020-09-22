@@ -52,7 +52,7 @@ namespace AccessibleProject
         {
             if (this._isRunning)
             {
-                this._accessibleHelper = AccessibleHelper.CreateByPoint(Cursor.Position);
+                this._accessibleHelper = AccessibleHelper.FromPoint(Cursor.Position);
                 var inforr = this._accessibleHelper?.GetInformation();
                 if (inforr.HasValue)
                 {
